@@ -1,7 +1,11 @@
 module.exports = {
   content: ['./src/**/*.{html,js}'],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero-pattern': 'url("/src/assets/images/bg.png")',
+      }
+    },
   },
   daisyui: {
     themes: [
@@ -12,6 +16,8 @@ module.exports = {
           secondary: '#19d3ae',
 
           accent: '#3a4256',
+
+          gradient: 'rgb(25,211,174)',
 
           'base-100': '#FFFFFF',
 
