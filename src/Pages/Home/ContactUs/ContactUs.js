@@ -8,7 +8,7 @@ const ContactUs = () => {
                 <h2 className='text-4xl text-white capitalize font-medium my-3'>Stay connected with us</h2>
             </div>
             
-            <form className='flex flex-col mx-6 lg:mx-0 lg:w-1/3 lg:mx-auto'>
+            <form className='flex flex-col mx-6 lg:w-1/3 lg:mx-auto'>
                 <input type="email" placeholder="Email Address" className="input w-full my-2.5" />
                 <input type="text" placeholder="Subject" className="input w-full my-2.5" />
                 <textarea className="textarea my-2.5" placeholder="Your Message"></textarea>

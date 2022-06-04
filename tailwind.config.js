@@ -4,7 +4,8 @@ module.exports = {
     extend: {
       backgroundImage: {
         'hero-pattern': 'url("/src/assets/images/bg.png")',
-        'appointment-pattern': 'url("/src/assets/images/appointment.png")'
+        'appointment-pattern': 'url("/src/assets/images/appointment.png")',
+        'footer-pattern': 'url("/src/assets/images/footer.png")'
       }
     },
   },
