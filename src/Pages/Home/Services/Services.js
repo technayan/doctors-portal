@@ -28,8 +28,8 @@ const Services = () => {
     return (
         <section className='py-16'>
             <div className="text-center pb-10">
-                <h5 className='text-secondary font-bold text-2xl'>Our Services</h5>
-                <h2 className='text-4xl font-medium text-accent my-2'>Services We Provide</h2>
+                <h5 className='text-secondary font-bold text-2xl capitalize'>Our services</h5>
+                <h2 className='text-4xl font-medium capitalize text-accent my-2'>Services we provide</h2>
             </div>
             <div className='grid lg:grid-cols-3 gap-10'>
                 {

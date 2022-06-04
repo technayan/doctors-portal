@@ -1,4 +1,5 @@
 import React from 'react';
+import ContactUs from './ContactUs/ContactUs';
 import Hero from './Hero/Hero';
 import Info from './Info/Info';
 import MakeAppointment from './MakeAppointment/MakeAppointment';
@@ -19,7 +20,7 @@ const Home = () => {
             <div className='md:px-12'>
                 <Testimonial />
             </div>
-            
+            <ContactUs />
         </div>
     );
 };
