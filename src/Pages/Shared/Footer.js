@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
+    const year = new Date().getFullYear();
     return (
         <footer class="py-16 px-20 bg-footer-pattern bg-cover bg-no-repeat bg-center">
             <div className="footer">
@@ -24,7 +25,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className='pt-28 text-center'>
-                <p>Copyright © 2022 - All right reserved by <Link className='text-primary hover:text-secondary font-medium' to={'/'}>Doctors Portal</Link>.</p>
+                <p>Copyright © {year} - All right reserved by <Link className='text-primary hover:text-secondary font-medium' to={'/'}>Doctors Portal</Link>.</p>
             </div>
         </footer>
     );
