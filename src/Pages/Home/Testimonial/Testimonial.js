@@ -4,7 +4,7 @@ import TestimonialSlider from './TestimonialSlider/TestimonialSlider';
 
 const Testimonial = () => {
     return (
-        <section className='py-16'>
+        <section className='py-16 px-4 md:px-0'>
             <div className='flex justify-between'>
                 <div>
                     <h5 className='text-2xl font-bold text-secondary'>Testimonial</h5>

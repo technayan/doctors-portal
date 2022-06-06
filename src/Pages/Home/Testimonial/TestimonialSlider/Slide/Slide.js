@@ -7,8 +7,8 @@ import "swiper/css/pagination";
 const Slide = ({testimonial}) => {
     return (
         <SwiperSlide>
-            <div className="card w-96 bg-base-100 shadow-lg">
-            <div className="card-body">
+            <div className="card w-full md:max-w-md bg-base-100 shadow-lg">
+            <div className="card-body p-5 md:p-8">
                 <p>{testimonial.review}</p>
                 
                 <div className='flex items-center mt-6'>

@@ -28,14 +28,14 @@ const TestimonialSlider = () => {
         {
             _id: 2,
             name: 'Kate Bishop',
-            review: 'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content.',
+            review: 'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content.',
             location: 'Manhattan',
             img: people2
         },
         {
             _id: 3,
             name: 'Himary Sakura',
-            review: 'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribute.',
+            review: 'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content.',
             location: 'Flemington',
             img: people3
         },
@@ -49,14 +49,14 @@ const TestimonialSlider = () => {
         {
             _id: 5,
             name: 'Kate Bishop',
-            review: 'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content.',
+            review: 'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content.',
             location: 'Manhattan',
             img: people2
         },
         {
             _id: 6,
             name: 'Himary Sakura',
-            review: 'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribute.',
+            review: 'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content.',
             location: 'Flemington',
             img: people3
         },
@@ -65,11 +65,21 @@ const TestimonialSlider = () => {
     return (
         <div>
             <Swiper
-                slidesPerView={3}
+                slidesPerView={1}
                 spaceBetween={30}
                 pagination={{
                 clickable: true,
                 }}
+                breakpoints={{
+                    768: {
+                      slidesPerView: 2,
+                    //   spaceBetween: 40,
+                    },
+                    1024: {
+                      slidesPerView: 3,
+                    //   spaceBetween: 50,
+                    },
+                  }}
                 modules={[Pagination]}
                 style={{padding: '20px 15px 60px'}}
                 className="mySwiper"

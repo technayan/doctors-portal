@@ -11,13 +11,13 @@ const Home = () => {
     return (
         <div>
             <Hero />
-            <div className='md:px-12'>
+            <div className='md:px-12 max-w-[1400px] mx-auto'>
                 <Info />
                 <Services />
                 <Treatment />
             </div>
             <MakeAppointment />
-            <div className='md:px-12'>
+            <div className='md:px-12 max-w-[1400px] mx-auto'>
                 <Testimonial />
             </div>
             <ContactUs />
