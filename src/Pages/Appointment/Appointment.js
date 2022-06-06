@@ -1,9 +1,10 @@
 import React from 'react';
+import AppointmentHero from './AppointmentHero/AppointmentHero';
 
 const Appointment = () => {
     return (
         <div>
-            <h2>Appointment</h2>
+            <AppointmentHero />
         </div>
     );
 };
