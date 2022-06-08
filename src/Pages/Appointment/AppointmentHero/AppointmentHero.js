@@ -4,7 +4,6 @@ import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 
 const AppointmentHero = ({date, setDate}) => {
-    
     return (
         <div className="hero py-1 lg:py-5 lg:h-[650px] lg:max-h-[800px] lg:bg-hero-pattern hero-section">
             <div className="hero-content flex-col lg:flex-row-reverse">
