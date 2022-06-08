@@ -11,7 +11,7 @@ const SingleAppointment = ({appointment, setBookAppointment}) => {
             }</p>
             <p>{slots.length} {slots.length > 1 ? "slots" : "slot"} available</p>
             <div className="card-actions justify-center mt-5">
-                <label onClick={() => setBookAppointment(appointment)} htmlFor="booking-modal" className="btn bg-gradient-to-r from-secondary to-primary border-0 text-white hover:bg-gradient-to-l">Book Appointment</label>
+                <label disabled ={slots.length < 1} onClick={() => setBookAppointment(appointment)} htmlFor="booking-modal" className="btn bg-gradient-to-r from-secondary to-primary border-0 text-white hover:bg-gradient-to-l">Book Appointment</label>
             </div>
         </div>
         </div>
