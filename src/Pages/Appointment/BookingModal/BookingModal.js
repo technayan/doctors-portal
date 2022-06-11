@@ -18,18 +18,18 @@ const BookingModal = ({bookAppointment, date, setBookAppointment}) => {
             <div className="modal-box">
                 <label htmlFor="booking-modal" className="btn btn-sm btn-circle text-accent hover:text-white hover:bg-accent absolute right-2 top-2">✕</label>
                 <p>Booking Appointment for :</p>
-                <h3 className="font-bold text-secondary text-2xl">{name}</h3>
+                <h3 className="font-bold text-primary text-2xl">{name}</h3>
                 <form onSubmit={handleBooking} className='mt-5'>
                     <input type="text" name='date' disabled value={format(date, 'PP')} className="input w-full my-2 bg-gray-100" />
-                    <select name='slot' className="select w-full my-2 bg-gray-100 focus:outline-secondary focus:outline-offset-0">
+                    <select name='slot' className="select w-full my-2 bg-gray-100 focus:outline-primary focus:outline-offset-0">
                         {
                             slots.map(slot => <option key={slot} value={slot}>{slot}</option>)
                         }
                     </select>
-                    <input type="text" name='name' placeholder="Full Name" className="input w-full my-2 bg-gray-100 focus:outline-secondary focus:outline-offset-0" />
-                    <input type="text" name='phone' placeholder="Phone Number" className="input w-full my-2 bg-gray-100 focus:outline-secondary focus:outline-offset-0" />
-                    <input type="text" name='email' placeholder="Email Address" className="input w-full my-2 bg-gray-100 focus:outline-secondary focus:outline-offset-0" />
-                    <input type="submit" value='SUBMIT' className="btn w-full my-3 bg-gradient-to-r from-secondary to-primary border-0 text-white hover:bg-gradient-to-l font-bold" />
+                    <input type="text" name='name' placeholder="Full Name" className="input w-full my-2 bg-gray-100 focus:outline-primary focus:outline-offset-0" />
+                    <input type="text" name='phone' placeholder="Phone Number" className="input w-full my-2 bg-gray-100 focus:outline-primary focus:outline-offset-0" />
+                    <input type="text" name='email' placeholder="Email Address" className="input w-full my-2 bg-gray-100 focus:outline-primary focus:outline-offset-0" />
+                    <input type="submit" value='SUBMIT' className="btn w-full my-3 bg-gradient-to-r from-primary to-secondary border-0 text-white hover:bg-gradient-to-l font-bold" />
                 </form>
             </div>
             </div>

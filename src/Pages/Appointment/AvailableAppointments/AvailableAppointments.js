@@ -15,7 +15,7 @@ const AvailableAppointments = ({date}) => {
 
     return (
         <div className='py-10 md:py-14 lg:py-16 mx-4 md:mx-12 max-w-[1200px] lg:mx-auto'>
-            <h4 className='text-center text-secondary text-2xl'>Available Appointments for {format(date, 'PP')}</h4>
+            <h4 className='text-center text-primary text-2xl'>Available Appointments for {format(date, 'PP')}</h4>
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-7 lg:gap-10  mt-14'>
                 {
                     appointments.map(appointment => <SingleAppointment key={appointment._id} appointment={appointment} setBookAppointment={setBookAppointment} />)

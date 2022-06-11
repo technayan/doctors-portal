@@ -28,7 +28,7 @@ const Services = () => {
     return (
         <section className='py-10 md:py-14 lg:py-16'>
             <div className="text-center pb-10">
-                <h5 className='text-secondary font-bold text-2xl capitalize'>Our services</h5>
+                <h5 className='text-primary font-bold text-2xl capitalize'>Our services</h5>
                 <h2 className='text-3xl md:text-4xl font-medium capitalize text-accent my-2'>Services we provide</h2>
             </div>
             <div className='grid lg:grid-cols-3 mx-5 gap-7 lg:gap-10'>
