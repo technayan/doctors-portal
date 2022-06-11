@@ -4,6 +4,7 @@ import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 const Login = () => {
@@ -29,6 +30,14 @@ const Login = () => {
         console.log(data)
     };
 
+    // Redirect to previous page or homepage
+    useEffect(() => {
+        // User
+        if(user || gUser) {
+            navigate(from, {replace: true})
+        }
+    }, [user, gUser, from, navigate]);
+
     // Loading
     if(loading || gLoading) {
         return <Loading />
@@ -41,10 +50,7 @@ const Login = () => {
         signInError = <small className='block pb-3 text-red-500'>{error?.message || gError?.message}</small>
     }
 
-    // User
-    if(user || gUser) {
-        navigate(from, {replace: true})
-    }
+    
     
 
     return (
