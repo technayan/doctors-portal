@@ -3,7 +3,7 @@ import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-fireba
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
@@ -13,6 +13,15 @@ const Login = () => {
 
     // React Hook Form
     const { register, formState: { errors }, handleSubmit } = useForm();
+
+    // Location 
+    const location = useLocation();
+
+    // Navigate 
+    const navigate = useNavigate();
+
+    // From (The page user redirect from)
+    const from = location.state?.from?.pathname || '/';
 
     // Login Handler
     const onSubmit = data => {
@@ -34,7 +43,7 @@ const Login = () => {
 
     // User
     if(user || gUser) {
-        console.log(gUser || user);
+        navigate(from, {replace: true})
     }
     
 
