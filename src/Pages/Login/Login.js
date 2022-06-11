@@ -7,27 +7,32 @@ import { Link } from 'react-router-dom';
 
 
 const Login = () => {
+    // React Firebase Hooks
     const [signInWithEmailAndPassword,user,loading,error,] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
     // React Hook Form
     const { register, formState: { errors }, handleSubmit } = useForm();
 
+    // Login Handler
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password);
         console.log(data)
     };
 
+    // Loading
     if(loading || gLoading) {
         return <Loading />
     }
 
+    // Error
     let signInError;
 
     if(error || gError) {
         signInError = <small className='block pb-3 text-red-500'>{error?.message || gError?.message}</small>
     }
 
+    // User
     if(user || gUser) {
         console.log(gUser || user);
     }
@@ -42,7 +47,7 @@ const Login = () => {
 
                 <form onSubmit={handleSubmit(onSubmit)}>
 
-                    {/* Daisyui */}
+                    {/* Daisyui with React Hook Form validation */}
                     <div className="form-control w-full mt-5">
                         
                         <input type="email" placeholder="Your Email" className="input input-bordered w-full focus:border-primary focus:outline-none" {...register("email", {
@@ -82,7 +87,7 @@ const Login = () => {
                     <input className='btn bg-primary w-full hover:bg-accent text-white' type="submit" value="Login" />
                 </form>
 
-                <p className='mt-3'>New to Doctors Portal? <Link className='text-primary hover:text-secondary' to={'/register'}>Create an account</Link></p>
+                <p className='my-5'>New to Doctors Portal? <Link className='text-primary hover:text-secondary' to={'/register'}>Create an account</Link></p>
 
                 <div className="divider">OR</div>
                 <button onClick={() => signInWithGoogle()} className="btn border-primary w-full text-primary hover:bg-primary hover:border-primary hover:text-white">Continue with google</button>

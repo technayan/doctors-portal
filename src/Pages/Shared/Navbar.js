@@ -1,15 +1,40 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
+import Loading from './Loading';
 import './Navbar.css'
 
 const Navbar = () => {
+    // React Firebase Hooks 
+    const [user, loading] = useAuthState(auth);
+
+    // Loading
+    if(loading) {
+        return <Loading />
+    }
+
+    // Logout Handler
+    const logout = () => {
+        signOut(auth);
+    }
+
     const navItem = <>
         <li><Link className='nav-link hover:bg-accent rounded-btn hover:text-base-100' to='/'>Home</Link></li>
         <li><Link className='nav-link hover:bg-accent rounded-btn hover:text-base-100' to='/about'>About</Link></li>
         <li><Link className='nav-link hover:bg-accent rounded-btn hover:text-base-100' to='/appointment'>Appointment</Link></li>
         <li><Link className='nav-link hover:bg-accent rounded-btn hover:text-base-100' to='/reviews'>Reviews</Link></li>
         <li><Link className='nav-link hover:bg-accent rounded-btn hover:text-base-100' to='/contact'>Contact</Link></li>
-        <li><Link className='nav-link hover:bg-accent rounded-btn hover:text-base-100' to='/login'>Login</Link></li>
+        <>{
+            user ? <button onClick={logout} className='nav-link hover:bg-accent rounded-btn hover:text-base-100 px-4'>Logout</button> : 
+            <>
+            <li><Link className='nav-link hover:bg-accent rounded-btn hover:text-base-100' to='/login'>Login</Link></li>
+            <li><Link className='nav-link hover:bg-accent rounded-btn hover:text-base-100' to='/register'>Register</Link></li>
+            </>
+        }
+        </>
+        
     </>
     return (
         <div className="navbar bg-base-100 lg:px-12">
