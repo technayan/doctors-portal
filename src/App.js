@@ -9,6 +9,7 @@ import ContactUs from './Pages/ContactUs/ContactUs';
 import Login from './Pages/Login/Login';
 import Footer from './Pages/Shared/Footer';
 import NotFound from './Pages/NotFound/NotFound';
+import Register from './Pages/Register/Register';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/reviews' element={<Reviews />} />
         <Route path='/contact' element={<ContactUs />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
