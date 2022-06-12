@@ -37,7 +37,7 @@ const Navbar = () => {
         
     </>
     return (
-        <div className="navbar bg-base-100 lg:px-12">
+        <div className="navbar bg-base-100 lg:px-12 md:px-12 max-w-[1400px] mx-auto">
             <div className="flex w-full">
                 <Link to={'/'} className="font-bold flex-1 text-2xl">Doctors Portal</Link>
                 <div className="dropdown">
