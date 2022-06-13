@@ -27,7 +27,6 @@ const Login = () => {
     // Login Handler
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password);
-        console.log(data)
     };
 
     // Redirect to previous page or homepage
