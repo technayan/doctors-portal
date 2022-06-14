@@ -27,7 +27,11 @@ const Navbar = () => {
         <li><Link className='nav-link hover:bg-accent rounded-btn hover:text-base-100' to='/reviews'>Reviews</Link></li>
         <li><Link className='nav-link hover:bg-accent rounded-btn hover:text-base-100' to='/contact'>Contact</Link></li>
         <>{
-            user ? <button onClick={logout} className='nav-link hover:bg-accent rounded-btn hover:text-base-100 px-4'>Logout</button> : 
+            user ? 
+            <>
+            <li><Link className='nav-link hover:bg-accent rounded-btn hover:text-base-100' to='/dashboard'>Dashboard</Link></li>
+            <li><button onClick={logout} className='nav-link hover:bg-accent rounded-btn hover:text-base-100 px-4'>Logout</button></li>
+            </> : 
             <>
             <li><Link className='nav-link hover:bg-accent rounded-btn hover:text-base-100' to='/login'>Login</Link></li>
             <li><Link className='nav-link hover:bg-accent rounded-btn hover:text-base-100' to='/register'>Register</Link></li>
