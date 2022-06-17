@@ -1,31 +1,44 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 
 const MyAppointments = () => {
     const [user] = useAuthState(auth);
     const [myAppointments, setMyAppointments] = useState([]);
 
-    
+    const navigate = useNavigate();
 
     useEffect(() => {
         if(user) {
-            console.log(user.email);
-            fetch(`http://localhost:5000/my-bookings?email=${user.email}`)
-            .then(res => res.json())
+            fetch(`http://localhost:5000/my-bookings?email=${user.email}`, {
+                method: 'GET',
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+            .then(res => {
+                console.log('res', res)
+                if(res.status === 401 || res.status === 403) {
+                    localStorage.removeItem('accessToken');
+                    signOut(auth);
+                    navigate('/');
+                } else {
+                    return res.json()
+                }
+            })
             .then(data => {
-                console.log(data)
                 setMyAppointments(data)})
         }
-        console.log(`http://localhost:5000/my-bookings?email=${user.email}`)
     }, [user]);
     return (
         <div>
             <h2 className='font-bold'>My Appointments:</h2>
             <div className="overflow-x-auto mt-5">
-                <table class="table w-full">
+                <table className="table w-full">
                     <thead>
                     <tr>
                         <th></th>
@@ -36,18 +49,19 @@ const MyAppointments = () => {
                     </thead>
                     <tbody>
                         {
-                            myAppointments.length ? 
+                            // myAppointments.length ? 
                             myAppointments.map((appointment, index) => 
-                                <tr>
+                                <tr key={appointment._id}>
                                     <td>{index + 1}</td>
                                     <td>{appointment.treatment}</td>
                                     <td>{appointment.date}</td>
                                     <td>{appointment.slot}</td>
                                 </tr>
-                            ) : <h2 className='mt-10'>You have no appointement to show.</h2>
+                            ) 
                         }
                     </tbody>
                 </table>
+                {myAppointments.length ? <></> : <h2 className='mt-10'>You have no appointement to show.</h2>}
             </div>
         </div>
     );

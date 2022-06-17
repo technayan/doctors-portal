@@ -5,12 +5,16 @@ import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import useToken from '../../hooks/useToken';
 
 
 const Login = () => {
     // React Firebase Hooks
     const [signInWithEmailAndPassword,user,loading,error,] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+
+    // useToken Hook
+    const [token] = useToken(user || gUser);
 
     // React Hook Form
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -32,10 +36,10 @@ const Login = () => {
     // Redirect to previous page or homepage
     useEffect(() => {
         // User
-        if(user || gUser) {
+        if(token) {
             navigate(from, {replace: true})
         }
-    }, [user, gUser, from, navigate]);
+    }, [token, from, navigate]);
 
     // Loading
     if(loading || gLoading) {

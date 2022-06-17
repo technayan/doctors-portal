@@ -18,6 +18,7 @@ const Navbar = () => {
     // Logout Handler
     const logout = () => {
         signOut(auth);
+        localStorage.removeItem('accessToken');
     }
 
     const navItem = <>
@@ -43,15 +44,18 @@ const Navbar = () => {
     return (
         <div className="navbar bg-base-100 lg:px-12 md:px-12 max-w-[1400px] mx-auto">
             <div className="flex w-full justify-between">
-                <label htmlFor="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+                {
+                    user ? <label htmlFor="dashboard-sidebar" className="btn btn-ghost lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                </label>
+                    </label> : <></>
+                }
+                
                 <Link to={'/'} className="font-bold text-2xl">Doctors Portal</Link>
                 <div className="dropdown">
                     <label htmlFor="menu" tabIndex="0" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex="0" className="menu w-screen -right-2 dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box">
+                    <ul tabIndex="0" className="menu w-screen -right-2 md:-right-12 dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box">
                         {navItem}
                     </ul>
                 </div>

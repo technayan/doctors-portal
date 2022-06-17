@@ -4,6 +4,7 @@ import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
 import { Link, useNavigate } from 'react-router-dom';
+import useToken from '../../hooks/useToken';
 
 
 const Register = () => {
@@ -12,18 +13,24 @@ const Register = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-    // Navigate
-    const navigate = useNavigate();
-
     // React Hook Form
     const { register, formState: { errors }, handleSubmit } = useForm();
+
+    // useToken hook
+    const [token] = useToken(user || gUser);
+
+    // Navigate
+    const navigate = useNavigate();
 
     // Register Handler
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
-        navigate('/appointment');
     };
+
+    if(token) {
+        navigate('/appointment');
+    }
 
     // Loading
     if(loading || gLoading || updating) {
@@ -36,12 +43,6 @@ const Register = () => {
     if(error || gError || updateError) {
         signInError = <small className='block pb-3 text-red-500'>{error?.message || gError?.message || updateError?.message}</small>
     }
-
-    // User
-    if(user || gUser) {
-        console.log(gUser || user);
-    }
-
 
     return (
         <div className='h-full flex justify-center items-center min-h-screen py-20 mx-5 lg:mx-0'>
