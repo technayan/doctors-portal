@@ -4,7 +4,7 @@ import MainBtn from '../../Shared/MainBtn';
 
 const Hero = () => {
     return (
-        <div className="hero py-1 lg:py-5 lg:h-[650px] lg:max-h-[800px] lg:bg-hero-pattern hero-section">
+        <div className="hero py-10 lg:py-5 lg:h-[650px] lg:max-h-[800px] lg:bg-hero-pattern hero-section">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <img className='lg:w-2/4' src={heroImg} alt='Dentist chair'/>
                 <div>

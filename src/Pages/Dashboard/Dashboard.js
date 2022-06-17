@@ -10,8 +10,8 @@ const Dashboard = () => {
             <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content p-5">
                 {/* <!-- Page content here --> */}
-                <div className="md:flex md:justify-between">
-                    <h2 className='text-2xl text-center md:text-left font-bold text-primary mb-5'>Dashboard</h2>
+                <div className="md:flex md:justify-between md:items-center mb-5">
+                    <h2 className='text-2xl text-center md:text-left font-bold text-primary'>Dashboard</h2>
                     <div className='my-5 md:my-0'>
                         <p>Welcome!</p>
                         <p><strong className='text-primary'>{user.displayName}</strong></p>
@@ -28,6 +28,7 @@ const Dashboard = () => {
                 {/* <!-- Sidebar content here --> */}
                 <li><Link className='focus:bg-primary' to={'/dashboard'}>My Appointments</Link></li>
                 <li><Link className='focus:bg-primary' to={'/dashboard/reviews'}>My Reviews</Link></li>
+                <li><Link className='focus:bg-primary' to={'/dashboard/users'}>All Users</Link></li>
                 </ul>
             </div>
         </div>

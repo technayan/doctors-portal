@@ -21,7 +21,6 @@ const MyAppointments = () => {
                 }
             })
             .then(res => {
-                console.log('res', res)
                 if(res.status === 401 || res.status === 403) {
                     localStorage.removeItem('accessToken');
                     signOut(auth);
@@ -33,7 +32,7 @@ const MyAppointments = () => {
             .then(data => {
                 setMyAppointments(data)})
         }
-    }, [user]);
+    }, [user, navigate]);
     return (
         <div>
             <h2 className='font-bold'>My Appointments:</h2>
@@ -49,7 +48,6 @@ const MyAppointments = () => {
                     </thead>
                     <tbody>
                         {
-                            // myAppointments.length ? 
                             myAppointments.map((appointment, index) => 
                                 <tr key={appointment._id}>
                                     <td>{index + 1}</td>
