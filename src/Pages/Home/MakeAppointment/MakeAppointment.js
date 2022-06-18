@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const MakeAppointment = () => {
     return (
-        <section className=' bg-appointment-pattern bg-cover bg-no-repeat mt-0 lg:mt-16 px-4  lg:px-12'>
+        <section className=' bg-appointment-pattern bg-cover bg-no-repeat mt-0 lg:mt-16 px-4 py-12 lg:py-0 lg:px-12'>
             <div className='max-w-[1400px] flex items-center mx-auto'>
                 <div className='flex-1 hidden lg:block'>
                     <img className='lg:-mt-24 xl:-mt-32 lg:w-full' src={doctor} alt="Doctor" />

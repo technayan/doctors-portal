@@ -3,7 +3,7 @@ import React from 'react';
 const SingleAppointment = ({appointment, setBookAppointment}) => {
     const {name, slots} = appointment;
     return (
-        <div className="card lg:w-lg bg-base-100 shadow-lg">
+        <div className="card lg:w-lg bg-base-100 shadow-md lg:shadow-lg">
         <div className="card-body text-center">
             <h2 className="card-title text-2xl text-primary mx-auto">{name}</h2>
             <p>{

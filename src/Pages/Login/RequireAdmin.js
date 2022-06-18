@@ -9,9 +9,7 @@ import Loading from '../Shared/Loading';
 const RequireAuth = ({children}) => {
     const [user, loading] = useAuthState(auth);
     const [admin, adminLoading] = useAdmin(user);
-
-    console.log(user);
-
+    
     // Loading
     if(loading || adminLoading) {
         return <Loading />
