@@ -20,7 +20,7 @@ const AllUsers = () => {
 
     return (
         <div>
-            <h2 className='font-bold'>All Users:</h2>
+            <h4 className='font-bold'>All Users :</h4>
             <div className="overflow-x-auto mt-5">
                 <table className="table w-full">
                     <thead>

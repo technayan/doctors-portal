@@ -35,7 +35,7 @@ const MyAppointments = () => {
     }, [user, navigate]);
     return (
         <div>
-            <h2 className='font-bold'>My Appointments:</h2>
+            <h4 className='font-bold'>My Appointments :</h4>
             <div className="overflow-x-auto mt-5">
                 <table className="table w-full">
                     <thead>

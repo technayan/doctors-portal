@@ -33,7 +33,11 @@ const Dashboard = () => {
                     <li><Link className='focus:bg-primary focus:text-white' to={'/dashboard'}>My Appointments</Link></li>
                     <li><Link className='focus:bg-primary focus:text-white' to={'/dashboard/reviews'}>My Reviews</Link></li>
                     {
-                        admin && <li><Link className='focus:bg-primary focus:text-white' to={'/dashboard/users'}>All Users</Link></li>
+                        admin && <>
+                            <li><Link className='focus:bg-primary focus:text-white' to={'/dashboard/users'}>All Users</Link></li>
+                            <li><Link className='focus:bg-primary focus:text-white' to={'/dashboard/add-doctor'}>Add Doctor</Link></li>
+
+                        </>
                     }
                 </ul>
             </div>
