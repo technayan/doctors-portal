@@ -1,6 +1,7 @@
 import React from 'react';
 import MainBtn from '../../Shared/MainBtn';
 import doctor from '../../../assets/images/doctor.png'
+import { Link } from 'react-router-dom';
 
 const MakeAppointment = () => {
     return (
@@ -13,7 +14,7 @@ const MakeAppointment = () => {
                     <h5 className='text-2xl font-bold text-primary capitalize'>Appointment</h5>
                     <h2 className='text-3xl md:text-4xl text-white capitalize font-medium my-3'>Make an appointment today</h2>
                     <p className='text-white mb-6'>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English.</p>
-                    <MainBtn>Book an Appointmet</MainBtn>
+                    <Link to={'/appointment'}><MainBtn>Book an Appointmet</MainBtn></Link>
                 </div>
             </div>
         </section>
