@@ -10,19 +10,11 @@ const Navbar = () => {
     // React Firebase Hooks 
     const [user, loading] = useAuthState(auth);
 
-    
-
     const location = useLocation();
 
+    // Url Pathname
     const pathName = location.pathname.split('/');
     
-    if(pathName.includes('dashboard')) {
-        console.log(pathName);
-    }
-    
-
-    
-
     // Loading
     if(loading) {
         return <Loading />
