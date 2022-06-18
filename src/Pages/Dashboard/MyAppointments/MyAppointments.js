@@ -14,7 +14,7 @@ const MyAppointments = () => {
 
     useEffect(() => {
         if(user) {
-            fetch(`http://localhost:5000/my-bookings?email=${user.email}`, {
+            fetch(`https://whispering-coast-97646.herokuapp.com/my-bookings?email=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`

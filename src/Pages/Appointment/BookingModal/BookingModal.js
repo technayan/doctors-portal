@@ -30,7 +30,7 @@ const BookingModal = ({bookAppointment, date, setBookAppointment, refetch}) => {
         }
 
         // Post Booking to Backend
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://whispering-coast-97646.herokuapp.com/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

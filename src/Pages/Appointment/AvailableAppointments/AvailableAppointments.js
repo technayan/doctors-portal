@@ -13,7 +13,7 @@ const AvailableAppointments = ({date}) => {
 
     // React Query
     const {data: appointments, isLoading, refetch} = useQuery(('available', formattedDate), () => 
-        fetch(`http://localhost:5000/available-appointments?date=${formattedDate}`)
+        fetch(`https://whispering-coast-97646.herokuapp.com/available-appointments?date=${formattedDate}`)
         .then(res => res.json()))
     if(isLoading) {
         return <Loading />
