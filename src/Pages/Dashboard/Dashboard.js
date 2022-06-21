@@ -36,7 +36,7 @@ const Dashboard = () => {
                         admin && <>
                             <li><Link className='focus:bg-primary focus:text-white' to={'/dashboard/users'}>All Users</Link></li>
                             <li><Link className='focus:bg-primary focus:text-white' to={'/dashboard/add-doctor'}>Add Doctor</Link></li>
-
+                            <li><Link className='focus:bg-primary focus:text-white' to={'/dashboard/manage-doctors'}>Manage Doctors</Link></li>
                         </>
                     }
                 </ul>

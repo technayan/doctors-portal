@@ -24,12 +24,12 @@ const AllUsers = () => {
             <div className="overflow-x-auto mt-5">
                 <table className="table w-full">
                     <thead>
-                    <tr>
-                        <th></th>
-                        <th>Users</th>
-                        <th>Role Action</th>
-                        <th>Delete Action</th>
-                    </tr>
+                        <tr>
+                            <th></th>
+                            <th>Users</th>
+                            <th>Role Action</th>
+                            <th>Delete Action</th>
+                        </tr>
                     </thead>
                     <tbody>
                         {
