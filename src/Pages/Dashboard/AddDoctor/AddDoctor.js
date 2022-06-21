@@ -62,67 +62,71 @@ const AddDoctor = () => {
     return (
         <div>
             <h4 className='font-bold'>Add Doctor :</h4>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} className="border-2 rounded-lg pb-8 mt-5">
 
                     {/* Daisyui with React Hook Form validation */}
-                    <div className="form-control w-full mt-5">
-                        <label className="label">
-                            <span className="label-text">Doctor's Name :</span>
-                        </label>
-                        <input type="text" placeholder="Your Name" className="input input-bordered w-full focus:border-primary focus:outline-none" {...register("name", {
-                            required: {
-                                value: true,
-                                message: 'Name is required.'
-                            }
-                        })}/>
-                        <label className="label">
-                            {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
-                        </label>
+                    <div className="md:flex md:items-center md:justify-between mt-5">
+                        <div className="form-control w-full md:w-1/2 px-2 md:px-5">
+                            <label className="label">
+                                <span className="label-text">Doctor's Name :</span>
+                            </label>
+                            <input type="text" placeholder="Your Name" className="input input-bordered w-full focus:border-primary focus:outline-none" {...register("name", {
+                                required: {
+                                    value: true,
+                                    message: 'Name is required.'
+                                }
+                            })}/>
+                            <label className="label">
+                                {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                            </label>
+                        </div>
+                        <div className="form-control w-full md:w-1/2 px-2 md:px-5">
+                            <label className="label">
+                                <span className="label-text">Doctor's Email :</span>
+                            </label>
+                            <input type="email" placeholder="Your Email" className="input input-bordered w-full focus:border-primary focus:outline-none" {...register("email", {
+                                required: {
+                                    value: true,
+                                    message: 'Email is required.'
+                                },
+                                pattern: {
+                                value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                                message: 'Provide a valid email.'
+                                }
+                            })}/>
+                            <label className="label">
+                                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                            </label>
+                        </div>
                     </div>
-                    <div className="form-control w-full">
-                        <label className="label">
-                            <span className="label-text">Doctor's Email :</span>
-                        </label>
-                        <input type="email" placeholder="Your Email" className="input input-bordered w-full focus:border-primary focus:outline-none" {...register("email", {
-                            required: {
-                                value: true,
-                                message: 'Email is required.'
-                            },
-                            pattern: {
-                            value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                            message: 'Provide a valid email.'
-                            }
-                        })}/>
-                        <label className="label">
-                            {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                            {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                        </label>
+                    <div className="md:flex md:items-center md:justify-between">
+                        <div className="form-control w-full px-2 md:px-5">
+                            <label className="label">
+                                <span className="label-text">Doctor's Specialty :</span>
+                            </label>
+                            <select className="select select-bordered w-full focus:border-primary focus:outline-none" {...register("specialty")}>
+                                {
+                                    specialties.map(specialty => <option className='font-base' key={specialty._id} value={specialty.name}>{specialty.name}</option>)
+                                }
+                            </select>
+                        </div>
+                        <div className="form-control w-full px-2 md:px-5 mt-4">
+                            <label className="label">
+                                <span className="label-text">Doctor's Image :</span>
+                            </label>
+                            <input type="file" placeholder="Your Name" className="input input-bordered w-full p-1 focus:border-primary focus:outline-none" {...register("image", {
+                                required: {
+                                    value: true,
+                                    message: 'Image is required.'
+                                }
+                            })}/>
+                            <label className="label">
+                                {errors.image?.type === 'required' && <span className="label-text-alt text-red-500">{errors.image.message}</span>}
+                            </label>
+                        </div>
                     </div>
-                    <div className="form-control w-full">
-                        <label className="label">
-                            <span className="label-text">Doctor's Specialty :</span>
-                        </label>
-                        <select className="select select-bordered w-full focus:border-primary focus:outline-none" {...register("specialty")}>
-                            {
-                                specialties.map(specialty => <option className='font-base' key={specialty._id} value={specialty.name}>{specialty.name}</option>)
-                            }
-                        </select>
-                    </div>
-                    <div className="form-control w-full mt-5">
-                        <label className="label">
-                            <span className="label-text">Doctor's Image :</span>
-                        </label>
-                        <input type="file" placeholder="Your Name" className="input input-bordered w-full p-1 focus:border-primary focus:outline-none" {...register("image", {
-                            required: {
-                                value: true,
-                                message: 'Image is required.'
-                            }
-                        })}/>
-                        <label className="label">
-                            {errors.image?.type === 'required' && <span className="label-text-alt text-red-500">{errors.image.message}</span>}
-                        </label>
-                    </div>
-                    <input className='btn bg-primary w-full hover:bg-accent text-white' type="submit" value="ADD" />
+                    <input className='btn bg-primary w-40 mx-auto block mt-5 hover:bg-accent text-white' type="submit" value="ADD" />
                 </form>
         </div>
     );
