@@ -10,7 +10,7 @@ const AddDoctor = () => {
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
-    const {data: specialties, isLoading} = useQuery('specialty', () => fetch('http://localhost:5000/appointments').then(res => res.json()));
+    const {data: specialties, isLoading} = useQuery('specialty', () => fetch('https://whispering-coast-97646.herokuapp.com/appointments').then(res => res.json()));
 
     if(isLoading) {
         return <Loading />
@@ -39,7 +39,7 @@ const AddDoctor = () => {
                 }
 
                 // Send Doctor info to the backend
-                fetch('http://localhost:5000/doctors', {
+                fetch('https://whispering-coast-97646.herokuapp.com/doctors', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',

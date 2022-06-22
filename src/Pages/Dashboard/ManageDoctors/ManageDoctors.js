@@ -9,7 +9,7 @@ const ManageDoctors = () => {
     const [deletingDoctor, setDeletingDoctor] = useState(null);
 
     const {data: doctors, isLoading, refetch} = useQuery('doctors', () => 
-        fetch('http://localhost:5000/doctors', {
+        fetch('https://whispering-coast-97646.herokuapp.com/doctors', {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',

@@ -17,7 +17,7 @@ const CheckoutForm = ({appointment}) => {
     // client side:
     useEffect(() => {
         if(fee) {
-            fetch('http://localhost:5000/create-payment-intent', {
+            fetch('https://whispering-coast-97646.herokuapp.com/create-payment-intent', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -92,7 +92,7 @@ const CheckoutForm = ({appointment}) => {
                 transactionId: paymentIntent.id
             }
 
-            fetch(`http://localhost:5000/bookings/${_id}`, {
+            fetch(`https://whispering-coast-97646.herokuapp.com/bookings/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
@@ -103,7 +103,6 @@ const CheckoutForm = ({appointment}) => {
             .then(res => res.json())
             .then(data => {
                 setProcessing(false);
-                console.log(data);
             })
         }
     }

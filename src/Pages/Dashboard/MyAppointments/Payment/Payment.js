@@ -13,7 +13,7 @@ const stripePromise = loadStripe('pk_test_51LDCCcIEh0IjzcDapo1saLUS2nwXYU6NaXv7H
 const Payment = () => {
     const [appointment, setAppointment] = useState([]);
     const {id} = useParams();
-    const url = `http://localhost:5000/bookings/${id}`;
+    const url = `https://whispering-coast-97646.herokuapp.com/bookings/${id}`;
 
     useEffect(() => {
         fetch(url, {
